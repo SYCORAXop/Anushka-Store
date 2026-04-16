@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>About Anushka — Anushka Boutique</title>
+<meta name="description" content="Meet Anushka Gupta — Mumbai-based home boutique tailor with 5 years of handcrafting custom women's clothing."/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="preloader"><div class="pl-logo">Anushka</div><div class="pl-sub">Boutique · Crafted With Love</div><div class="pl-bar"><div class="pl-fill"></div></div></div>
+<div class="search-overlay" id="searchOverlay"><div style="width:100%;max-width:700px"><div class="search-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A09290" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" class="search-input" id="searchInput" placeholder="Search..." autocomplete="off"/><button class="s-close-btn" id="sCloseBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="search-results" id="searchResults"></div></div></div>
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer"><div class="cart-head"><div><div class="cart-head-title">Your Cart</div><div class="cart-head-count" id="cartHeadCount">0 items</div></div><button class="cart-close-btn" onclick="closeCart()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="cart-items-wrap" id="cartBody"></div><div id="cartFoot" style="display:none"><div class="cart-foot"><div class="cart-sub-row"><span class="cart-sub-lbl">Subtotal</span><span class="cart-sub-val" id="cartSubtotal">&#8377;0</span></div><a href="checkout.html" class="btn btn-rose btn-md" style="width:100%;justify-content:center;display:flex">Checkout</a></div></div></div>
+<div class="modal-overlay" id="modalOverlay"><div class="modal-box"><div class="modal-gallery"><div class="modal-main-img"><img id="modalBigImg" src="" alt=""/></div><button class="modal-close" onclick="closeModal()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><div class="modal-thumbs" id="modalThumbs"></div></div><div class="modal-info" id="modalInfo"></div></div></div>
+<div class="sg-modal" id="sgModal"><div class="sg-box"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><h3 style="font-family:'Playfair Display',serif">Size Guide</h3><button onclick="closeSG()" style="width:32px;height:32px;border-radius:50%;background:var(--cream-2);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-m)">x</button></div><table class="sg-table"><thead><tr><th>Size</th><th>Bust</th><th>Waist</th><th>Hip</th></tr></thead><tbody><tr><td>XS</td><td>31-32</td><td>24-25</td><td>33-34</td></tr><tr><td>S</td><td>33-34</td><td>26-27</td><td>35-36</td></tr><tr><td>M</td><td>35-36</td><td>28-29</td><td>37-38</td></tr><tr><td>L</td><td>37-38</td><td>30-31</td><td>39-40</td></tr><tr><td>XL</td><td>39-40</td><td>32-33</td><td>41-42</td></tr><tr><td>XXL</td><td>41-42</td><td>34-35</td><td>43-44</td></tr></tbody></table></div></div>
+<nav class="navbar" id="navbar"><div class="nav-inner"><a href="index.html" class="nav-logo"><span class="brand">Anushka Boutique</span><span class="brand-sub">Crafted With Love</span></a><div class="nav-links"><div class="nav-item"><a href="index.html" class="nav-link">Home</a></div><div class="nav-item"><a href="about.html" class="nav-link active">About</a></div><div class="nav-item"><a href="collection.html" class="nav-link">Collection</a></div><div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div></div><div class="nav-actions"><button class="nav-icon" id="searchBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button><button class="nav-icon" id="cartBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="cart-badge" id="cartBadge">0</span></button><button class="hamburger" id="hamburger"><span></span><span></span><span></span></button></div></div></nav>
+<div class="mobile-nav" id="mobileNav"><div class="mobile-nav-inner"><a href="index.html" class="mobile-nav-link">Home</a><a href="about.html" class="mobile-nav-link">About</a><a href="collection.html" class="mobile-nav-link">Collection</a><a href="cart.html" class="mobile-nav-link">Cart</a><a href="contact.html" class="mobile-nav-link">Contact</a></div></div>
+<div class="page-wrap">
+<div class="page-hero"><div class="page-hero-inner"><div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>About</span></div><div class="eyebrow">My Story</div><h1>Meet Anushka</h1><p>The hands, the heart, and the needle behind every stitch.</p></div></div>
+<section class="section"><div class="container"><div class="about-split">
+<div class="about-img-wrap reveal">
+  <img class="about-img" src="https://res.cloudinary.com/dozcviag7/image/upload/v1776248016/WhatsApp_Image_2026-04-14_at_9.04.18_AM_ujkofs.jpg" alt="Anushka Gupta" style="border-radius:12px" onerror="this.src='https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=600&q=80'"/>
+  <div class="about-accent-box"></div>
+  <div class="about-exp-badge"><div class="num" data-t="5" data-s="+">5+</div><div class="lbl">Years of Craft</div></div>
+</div>
+<div class="reveal reveal-d1">
+  <div class="eyebrow">My Journey</div>
+  <h2 class="sec-title" style="margin-top:12px">From a Needle &amp; Thread<br><em style="font-style:italic;color:var(--rose)">To a Beloved Boutique</em></h2>
+  <div style="height:1px;background:linear-gradient(90deg,var(--rose),transparent);margin:24px 0 28px"></div>
+  <p style="font-size:.95rem;color:var(--text-m);line-height:1.9;margin-bottom:16px">Hi, I am <strong style="color:var(--text)">Anushka Gupta</strong> — a home-based fashion designer and master tailor based in Mumbai. What started as a childhood passion for stitching has grown into a full boutique practice over the past 5 years.</p>
+  <p style="font-size:.95rem;color:var(--text-m);line-height:1.9;margin-bottom:16px">I started Anushka Boutique from my home in Mumbai with a simple belief: every woman deserves clothing that fits perfectly and feels beautiful. I offer something different — something personal.</p>
+  <p style="font-size:.95rem;color:var(--text-m);line-height:1.9;margin-bottom:24px">Today I stitch kurtis, corsets, sharara, palazzo pants, skirts, lehengas, crop tops, bodycon dresses, baby frocks, satin bows, face masks — and anything you can dream of through a custom order. Every piece is stitched by me personally with care and precision.</p>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="collection.html" class="btn btn-rose btn-md">Shop My Collection</a>
+    <a href="contact.html" class="btn btn-outline btn-md">Get in Touch</a>
+  </div>
+</div>
+</div></div></section>
+
+<section class="section" style="background:var(--cream-2)"><div class="container">
+  <div class="sec-head reveal"><div class="eyebrow">My Specialities</div><h2 class="sec-title" style="margin-top:12px">What I Stitch</h2><p class="sec-sub">From everyday wear to bridal couture — I craft clothing for every occasion and every body.</p></div>
+  <div class="services-grid">
+    <div class="service-card reveal"><div class="service-icon">👘</div><div class="service-name">Kurtis</div><p class="service-desc">Straight-cut, Anarkali, flared — in cottons, silks, georgette. Daily wear to festive.</p></div>
+    <div class="service-card reveal reveal-d1"><div class="service-icon">🪭</div><div class="service-name">Blouses &amp; Corsets</div><p class="service-desc">Silk blouses, brocade corsets with boning, mirror-work and zari embroidery.</p></div>
+    <div class="service-card reveal reveal-d2"><div class="service-icon">💫</div><div class="service-name">Lehenga &amp; Sharara</div><p class="service-desc">Bridal lehengas, festive sharara sets, palazzo sharara — all custom-stitched.</p></div>
+    <div class="service-card reveal"><div class="service-icon">✨</div><div class="service-name">Crop Tops</div><p class="service-desc">Embroidered crop tops, bralettes, peplum — from casual chic to festive statement.</p></div>
+    <div class="service-card reveal reveal-d1"><div class="service-icon">👗</div><div class="service-name">Skirts &amp; Pants</div><p class="service-desc">Flared A-line skirts, wide-leg palazzo pants, pencil skirts — georgette, crepe and more.</p></div>
+    <div class="service-card reveal reveal-d2"><div class="service-icon">💃</div><div class="service-name">Dresses</div><p class="service-desc">Bodycon evening dresses, Chanderi festive dresses, wrap dresses, maxi gowns.</p></div>
+    <div class="service-card reveal"><div class="service-icon">👶</div><div class="service-name">Baby Frocks</div><p class="service-desc">Adorable princess frocks in soft cotton with lace, bows, and net overlay.</p></div>
+    <div class="service-card reveal reveal-d1"><div class="service-icon">🎀</div><div class="service-name">Satin Bows</div><p class="service-desc">Handcrafted oversized satin hair bows — perfect for girls and women alike.</p></div>
+    <div class="service-card reveal reveal-d2"><div class="service-icon">😷</div><div class="service-name">Face Masks</div><p class="service-desc">Stylish 3-layer cotton face masks in printed and embroidered designs — washable.</p></div>
+  </div>
+</div></section>
+
+<section class="section"><div class="container">
+  <div class="sec-head reveal"><div class="eyebrow">Simple Process</div><h2 class="sec-title" style="margin-top:12px">How It Works</h2></div>
+  <div class="process-steps">
+    <div class="process-step reveal"><div class="step-num">1</div><div class="step-title">Browse &amp; Order</div><p class="step-desc">Browse the collection or describe a custom piece. Place your order.</p></div>
+    <div class="process-step reveal reveal-d1"><div class="step-num">2</div><div class="step-title">WhatsApp Chat</div><p class="step-desc">Anushka contacts you on WhatsApp to confirm details and collect measurements.</p></div>
+    <div class="process-step reveal reveal-d2"><div class="step-num">3</div><div class="step-title">Anushka Stitches</div><p class="step-desc">Your garment is personally stitched with premium fabric and care.</p></div>
+    <div class="process-step reveal reveal-d3"><div class="step-num">4</div><div class="step-title">Delivered</div><p class="step-desc">Your custom piece is carefully packed and delivered to your doorstep.</p></div>
+  </div>
+</div></section>
+
+<div style="background:var(--ink);padding:64px 5%"><div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center">
+  <div class="reveal"><div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:#fff"><span data-t="300" data-s="+">300+</span></div><div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:8px">Happy Customers</div></div>
+  <div class="reveal reveal-d1"><div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:#fff"><span data-t="5" data-s="+">5+</span></div><div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:8px">Years Experience</div></div>
+  <div class="reveal reveal-d2"><div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:#fff"><span data-t="1000" data-s="+">1000+</span></div><div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:8px">Pieces Crafted</div></div>
+  <div class="reveal reveal-d3"><div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:#fff"><span data-t="11" data-s="">11</span></div><div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:8px">Product Categories</div></div>
+</div></div>
+
+<div class="mission-banner"><span class="eyebrow" style="color:rgba(255,255,255,.6);justify-content:center;display:inline-flex;margin-bottom:20px">My Mission</span><blockquote class="mission-quote">To bring boutique-quality, custom-stitched clothing from my home in Mumbai to every woman's wardrobe — at prices that feel personal, not luxury.</blockquote><p class="mission-attr">Anushka Gupta, Founder</p><div style="margin-top:32px"><a href="collection.html" class="btn btn-outline-w btn-lg">Shop My Collection</a></div></div>
+
+<section class="section testi-section"><div class="container">
+  <div class="sec-head reveal"><div class="eyebrow">Kind Words</div><h2 class="sec-title" style="margin-top:12px">Customer Stories</h2></div>
+  <div class="testi-grid">
+    <div class="testi-card reveal"><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testi-text">"Anushka made the most beautiful sharara set for my sangeet. The fit was impeccable. Absolutely recommend!"</p><div class="testi-author"><div class="testi-av">N</div><div><div class="testi-name">Neha Mehta</div><div class="testi-loc">Andheri, Mumbai</div></div></div></div>
+    <div class="testi-card reveal reveal-d1"><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testi-text">"The corset blouse quality is incredible. Anushka's craftsmanship is on par with top boutiques but at a fraction of the price!"</p><div class="testi-author"><div class="testi-av">D</div><div><div class="testi-name">Divya Kapoor</div><div class="testi-loc">Juhu, Mumbai</div></div></div></div>
+    <div class="testi-card reveal reveal-d2"><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testi-text">"My daughter's birthday frock was so cute! The bow details, the net skirt — every little girl wanted one. The WhatsApp consultation made everything so easy."</p><div class="testi-author"><div class="testi-av">M</div><div><div class="testi-name">Meera Singh</div><div class="testi-loc">Borivali, Mumbai</div></div></div></div>
+  </div>
+</div></section>
+
+<footer><div class="footer-grid">
+  <div><div class="f-brand-name">Anushka Boutique</div><div class="f-brand-sub">By Anushka Gupta, Mumbai</div><p class="f-desc">A home-based boutique bringing you handcrafted, custom-stitched women's clothing with love and precision since 2019.</p><div class="f-socials"><a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+  <div><h4 class="f-col-title">Quick Links</h4><ul class="f-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Anushka</a></li><li><a href="collection.html">Collection</a></li><li><a href="cart.html">Cart</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div><h4 class="f-col-title">Categories</h4><ul class="f-links"><li><a href="collection.html?cat=kurtis">Kurtis</a></li><li><a href="collection.html?cat=lehenga">Lehenga &amp; Sharara</a></li><li><a href="collection.html?cat=tops">Crop Tops</a></li><li><a href="collection.html?cat=dresses">Dresses</a></li><li><a href="collection.html?cat=kids">Baby Frocks</a></li></ul></div>
+  <div><h4 class="f-col-title">Get in Touch</h4><div class="f-contact-row"><span class="f-contact-icon">&#128222;</span><span>+91 83698 76543</span></div><div class="f-contact-row"><span class="f-contact-icon">&#9993;&#65039;</span><span>anushka@boutique.com</span></div><div class="f-contact-row"><span class="f-contact-icon">&#128205;</span><span>Mumbai, Maharashtra</span></div></div>
+</div><div class="f-bottom"><span>&#169; 2026 Anushka Boutique, Mumbai. All rights reserved.</span><span>Made with love</span></div></footer>
+</div>
+<a href="https://wa.me/918369876543" class="wa-float"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.073 5.073 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<button class="back-top" id="backTop">&#8593;</button>
+<div id="toast" class="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>

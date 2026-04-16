@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Collection — Anushka Boutique</title>
+<meta name="description" content="Browse Anushka's full collection of handcrafted kurtis, corsets, lehenga, sharara, crop tops, skirts, dresses, baby frocks and custom orders."/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="preloader"><div class="pl-logo">Anushka</div><div class="pl-sub">Boutique · Crafted With Love</div><div class="pl-bar"><div class="pl-fill"></div></div></div>
+<div class="search-overlay" id="searchOverlay"><div style="width:100%;max-width:700px"><div class="search-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A09290" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" class="search-input" id="searchInput" placeholder="Search…" autocomplete="off"/><button class="s-close-btn" id="sCloseBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="search-results" id="searchResults"></div></div></div>
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer"><div class="cart-head"><div><div class="cart-head-title">Your Cart</div><div class="cart-head-count" id="cartHeadCount">0 items</div></div><button class="cart-close-btn" onclick="closeCart()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="cart-items-wrap" id="cartBody"></div><div id="cartFoot" style="display:none"><div class="cart-foot"><div class="cart-sub-row"><span class="cart-sub-lbl">Subtotal</span><span class="cart-sub-val" id="cartSubtotal">₹0</span></div><a href="checkout.html" class="btn btn-rose btn-md" style="width:100%;justify-content:center;display:flex">Checkout →</a><a href="cart.html" class="btn btn-outline btn-sm" style="width:100%;justify-content:center;display:flex;margin-top:8px">View Full Cart</a><p class="cart-note">💌 Anushka will contact you on WhatsApp</p></div></div></div>
+<div class="modal-overlay" id="modalOverlay"><div class="modal-box"><div class="modal-gallery"><div class="modal-main-img"><img id="modalBigImg" src="" alt=""/></div><button class="modal-close" onclick="closeModal()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button><div class="modal-thumbs" id="modalThumbs"></div></div><div class="modal-info" id="modalInfo"></div></div></div>
+<div class="sg-modal" id="sgModal"><div class="sg-box"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><h3 style="font-family:'Playfair Display',serif;font-size:1.3rem">Size Guide</h3><button onclick="closeSG()" style="width:32px;height:32px;border-radius:50%;background:var(--cream-2);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-m)">✕</button></div><table class="sg-table"><thead><tr><th>Size</th><th>Bust</th><th>Waist</th><th>Hip</th></tr></thead><tbody><tr><td>XS</td><td>31–32</td><td>24–25</td><td>33–34</td></tr><tr><td>S</td><td>33–34</td><td>26–27</td><td>35–36</td></tr><tr><td>M</td><td>35–36</td><td>28–29</td><td>37–38</td></tr><tr><td>L</td><td>37–38</td><td>30–31</td><td>39–40</td></tr><tr><td>XL</td><td>39–40</td><td>32–33</td><td>41–42</td></tr><tr><td>XXL</td><td>41–42</td><td>34–35</td><td>43–44</td></tr></tbody></table></div></div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="brand">Anushka Boutique</span><span class="brand-sub">Crafted With Love · Mumbai</span></a>
+    <div class="nav-links">
+      <div class="nav-item"><a href="index.html" class="nav-link">Home</a></div>
+      <div class="nav-item"><a href="about.html" class="nav-link">About</a></div>
+      <div class="nav-item"><a href="collection.html" class="nav-link active">Collection ▾</a><div class="mega"><div class="mega-title">Shop By Category</div><div class="mega-grid"><a href="collection.html" class="mega-link">All Designs</a><a href="collection.html?cat=kurtis" class="mega-link">Kurtis</a><a href="collection.html?cat=blouses" class="mega-link">Blouses & Corsets</a><a href="collection.html?cat=lehenga" class="mega-link">Lehenga & Sharara</a><a href="collection.html?cat=tops" class="mega-link">Tops & Crop Tops</a><a href="collection.html?cat=bottoms" class="mega-link">Skirts & Pants</a><a href="collection.html?cat=dresses" class="mega-link">Dresses</a><a href="collection.html?cat=kids" class="mega-link">Kids Wear</a><a href="collection.html?cat=accessories" class="mega-link">Accessories</a><a href="collection.html?cat=custom" class="mega-link">Custom Orders</a></div></div></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">Contact</a></div>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-icon" id="searchBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <button class="nav-icon" onclick="window.location='collection.html'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+      <button class="nav-icon" id="cartBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="cart-badge" id="cartBadge">0</span></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav"><div class="mobile-nav-inner"><a href="index.html" class="mobile-nav-link">Home <span>→</span></a><a href="about.html" class="mobile-nav-link">About <span>→</span></a><a href="collection.html" class="mobile-nav-link">Collection <span>→</span></a><a href="cart.html" class="mobile-nav-link">Cart <span>→</span></a><a href="contact.html" class="mobile-nav-link">Contact <span>→</span></a></div></div>
+
+<!-- MOBILE FILTER DRAWER -->
+<div class="filter-drawer-overlay" id="filterDrawerOv"></div>
+<div class="filter-drawer" id="filterDrawer">
+  <div class="filter-drawer-head">
+    <span style="font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em">Filters</span>
+    <button id="closeFilterDrawer" style="width:32px;height:32px;border-radius:50%;background:var(--cream-2);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-m)">✕</button>
+  </div>
+  <!-- Same filter content as sidebar - rendered by JS -->
+  <div style="padding:16px 22px">
+    <div style="margin-bottom:20px">
+      <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px">Category</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button data-filter="all" class="filter-btn-mob" onclick="setMobFilter('all',this)" style="text-align:left;padding:8px 12px;border:1.5px solid var(--border);border-radius:4px;font-size:.82rem;cursor:pointer;transition:all .2s;background:var(--rose);color:#fff;border-color:var(--rose)">All Designs</button>
+        <button data-filter="kurtis" class="filter-btn-mob" onclick="setMobFilter('kurtis',this)" style="text-align:left;padding:8px 12px;border:1.5px solid var(--border);border-radius:4px;font-size:.82rem;cursor:pointer;transition:all .2s">Kurtis</button>
+        <button data-filter="blouses" class="filter-btn-mob" onclick="setMobFilter('blouses',this)" style="text-align:left;padding:8px 12px;border:1.5px solid var(--border);border-radius:4px;font-size:.82rem;cursor:pointer;transition:all .2s">Blouses & Corsets</button>
+        <button data-filter="lehenga" class="filter-btn-mob" onclick="setMobFilter('lehenga',this)" style="text-align:left;padding:8px 12px;border:1.5px solid var(--border);border-radius:4px;font-size:.82rem;cursor:pointer;transition:all .2s">Lehenga & Sharara</button>
+        <button data-filter="tops" class="filter-btn-mob" onclick="setMobFilter('tops',this)" style="text-align:left;padding:8px 12px;border:1.5px solid var(--border);border-radius:4px;font-size:.82rem;cursor:pointer;transition:all .2s">Tops & Crop Tops</button>
+        <button data-filter="bottoms" class="filter-btn-mob" onclick="setMobFilter('bottoms',this)" style="text-align:left;padding:8px 12px;border:1.5px solid var(--border);border-radius:4px;font-size:.82rem;cursor:pointer;transition:all .2s">Skirts & Pants</button>
+        <button data-filter="dresses" class="filter-btn-mob" onclick="setMobFilter('dresses',this)" style="text-align:left;padding:8px 12px;border:1.5px solid var(--border);border-radius:4px;font-size:.82rem;cursor:pointer;transition:all .2s">Dresses</button>
+        <button data-filter="kids" class="filter-btn-mob" onclick="setMobFilter('kids',this)" style="text-align:left;padding:8px 12px;border:1.5px solid var(--border);border-radius:4px;font-size:.82rem;cursor:pointer;transition:all .2s">Kids Wear</button>
+        <button data-filter="accessories" class="filter-btn-mob" onclick="setMobFilter('accessories',this)" style="text-align:left;padding:8px 12px;border:1.5px solid var(--border);border-radius:4px;font-size:.82rem;cursor:pointer;transition:all .2s">Accessories</button>
+        <button data-filter="custom" class="filter-btn-mob" onclick="setMobFilter('custom',this)" style="text-align:left;padding:8px 12px;border:1.5px solid var(--border);border-radius:4px;font-size:.82rem;cursor:pointer;transition:all .2s">Custom Orders</button>
+      </div>
+    </div>
+    <button onclick="clearFilters();document.getElementById('filterDrawer').classList.remove('open');document.getElementById('filterDrawerOv').classList.remove('open');document.body.style.overflow=''" class="btn btn-outline btn-sm" style="width:100%;justify-content:center;margin-top:8px">Clear Filters</button>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span>Collection</span></div>
+    <div class="eyebrow">Handcrafted For You</div>
+    <h1>Our <em style="font-style:italic;color:var(--rose)">Collection</em></h1>
+    <p>Every piece custom-stitched to your measurements. Browse, pick, and let Anushka make it yours.</p>
+  </div>
+</div>
+
+<!-- CATEGORY PILLS (mobile-friendly) -->
+<div style="background:#fff;border-bottom:1px solid var(--border-s);padding:16px 5%;overflow-x:auto;white-space:nowrap">
+  <div style="display:inline-flex;gap:8px;max-width:1320px">
+    <button class="filter-pill active" data-filter="all" onclick="pillarFilter('all',this)" style="padding:8px 18px;border:1.5px solid var(--rose);border-radius:50px;font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;background:var(--rose);color:#fff;white-space:nowrap">All</button>
+    <button class="filter-pill" data-filter="kurtis" onclick="pillarFilter('kurtis',this)" style="padding:8px 18px;border:1.5px solid var(--border);border-radius:50px;font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;background:#fff;color:var(--text-m);white-space:nowrap">Kurtis</button>
+    <button class="filter-pill" data-filter="blouses" onclick="pillarFilter('blouses',this)" style="padding:8px 18px;border:1.5px solid var(--border);border-radius:50px;font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;background:#fff;color:var(--text-m);white-space:nowrap">Blouses & Corsets</button>
+    <button class="filter-pill" data-filter="lehenga" onclick="pillarFilter('lehenga',this)" style="padding:8px 18px;border:1.5px solid var(--border);border-radius:50px;font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;background:#fff;color:var(--text-m);white-space:nowrap">Lehenga & Sharara</button>
+    <button class="filter-pill" data-filter="tops" onclick="pillarFilter('tops',this)" style="padding:8px 18px;border:1.5px solid var(--border);border-radius:50px;font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;background:#fff;color:var(--text-m);white-space:nowrap">Crop Tops</button>
+    <button class="filter-pill" data-filter="bottoms" onclick="pillarFilter('bottoms',this)" style="padding:8px 18px;border:1.5px solid var(--border);border-radius:50px;font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;background:#fff;color:var(--text-m);white-space:nowrap">Skirts & Pants</button>
+    <button class="filter-pill" data-filter="dresses" onclick="pillarFilter('dresses',this)" style="padding:8px 18px;border:1.5px solid var(--border);border-radius:50px;font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;background:#fff;color:var(--text-m);white-space:nowrap">Dresses</button>
+    <button class="filter-pill" data-filter="kids" onclick="pillarFilter('kids',this)" style="padding:8px 18px;border:1.5px solid var(--border);border-radius:50px;font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;background:#fff;color:var(--text-m);white-space:nowrap">Kids</button>
+    <button class="filter-pill" data-filter="accessories" onclick="pillarFilter('accessories',this)" style="padding:8px 18px;border:1.5px solid var(--border);border-radius:50px;font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;background:#fff;color:var(--text-m);white-space:nowrap">Accessories</button>
+    <button class="filter-pill" data-filter="custom" onclick="pillarFilter('custom',this)" style="padding:8px 18px;border:1.5px solid var(--border);border-radius:50px;font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;background:#fff;color:var(--text-m);white-space:nowrap">Custom</button>
+  </div>
+</div>
+
+<section style="padding:48px 0 96px">
+  <div class="container">
+    <div class="collection-layout">
+
+      <!-- SIDEBAR -->
+      <div class="filter-sidebar">
+        <div class="filter-head">
+          <span class="filter-head-title">Filters</span>
+          <span class="filter-clear-btn" id="clearFiltersBtn">Clear All</span>
+        </div>
+
+        <!-- CATEGORY -->
+        <div class="filter-group open">
+          <div class="filter-group-hd">Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          <div class="filter-group-body">
+            <div class="filter-group-inner">
+              <label class="filter-check"><input type="checkbox" data-filter="kurtis" onchange="toggleCatFilter(this)"/><label>Kurtis <span class="filter-count-badge">2</span></label></label>
+              <label class="filter-check"><input type="checkbox" data-filter="blouses" onchange="toggleCatFilter(this)"/><label>Blouses & Corsets <span class="filter-count-badge">2</span></label></label>
+              <label class="filter-check"><input type="checkbox" data-filter="lehenga" onchange="toggleCatFilter(this)"/><label>Lehenga & Sharara <span class="filter-count-badge">2</span></label></label>
+              <label class="filter-check"><input type="checkbox" data-filter="tops" onchange="toggleCatFilter(this)"/><label>Tops & Crop Tops <span class="filter-count-badge">2</span></label></label>
+              <label class="filter-check"><input type="checkbox" data-filter="bottoms" onchange="toggleCatFilter(this)"/><label>Skirts & Pants <span class="filter-count-badge">2</span></label></label>
+              <label class="filter-check"><input type="checkbox" data-filter="dresses" onchange="toggleCatFilter(this)"/><label>Dresses <span class="filter-count-badge">2</span></label></label>
+              <label class="filter-check"><input type="checkbox" data-filter="kids" onchange="toggleCatFilter(this)"/><label>Kids Wear <span class="filter-count-badge">1</span></label></label>
+              <label class="filter-check"><input type="checkbox" data-filter="accessories" onchange="toggleCatFilter(this)"/><label>Accessories <span class="filter-count-badge">2</span></label></label>
+              <label class="filter-check"><input type="checkbox" data-filter="custom" onchange="toggleCatFilter(this)"/><label>Custom Orders <span class="filter-count-badge">1</span></label></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIZE -->
+        <div class="filter-group open">
+          <div class="filter-group-hd">Size <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          <div class="filter-group-body">
+            <div class="filter-size-grid">
+              <span class="filter-size-chip" data-sz="XS">XS</span>
+              <span class="filter-size-chip" data-sz="S">S</span>
+              <span class="filter-size-chip" data-sz="M">M</span>
+              <span class="filter-size-chip" data-sz="L">L</span>
+              <span class="filter-size-chip" data-sz="XL">XL</span>
+              <span class="filter-size-chip" data-sz="XXL">XXL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRICE -->
+        <div class="filter-group open">
+          <div class="filter-group-hd">Price <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          <div class="filter-group-body">
+            <div style="padding:8px 22px 16px">
+              <div class="price-display"><span>₹0</span><span id="priceVal">₹12,000</span></div>
+              <input type="range" id="priceRange" min="199" max="12000" value="12000" step="100"/>
+              <div style="font-size:.72rem;color:var(--text-s);margin-top:6px">Up to ₹12,000</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BADGE -->
+        <div class="filter-group open">
+          <div class="filter-group-hd">Availability <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          <div class="filter-group-body">
+            <div class="filter-group-inner">
+              <label class="filter-check"><input type="checkbox" id="filterNew" onchange="renderFiltered()"/><label>New Arrivals</label></label>
+              <label class="filter-check"><input type="checkbox" id="filterBest" onchange="renderFiltered()"/><label>Best Sellers</label></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div>
+        <div class="collection-topbar">
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <button class="filter-mob-btn" id="filterMobBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="12" y1="18" x2="20" y2="18"/></svg>
+              Filters
+            </button>
+            <span class="collection-result" id="collResult">Showing <strong>16</strong> results</span>
+          </div>
+          <select class="sort-select" id="sortSelect">
+            <option value="featured">Sort: Featured</option>
+            <option value="newest">Sort: New Arrivals</option>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="rating">Sort: Top Rated</option>
+          </select>
+        </div>
+
+        <div class="prod-grid" id="collectionGrid"></div>
+
+        <!-- CUSTOM ORDER CTA -->
+        <div style="margin-top:64px;background:var(--cream-2);border-radius:16px;padding:48px;text-align:center;border:1px solid var(--border-s)">
+          <div class="eyebrow" style="justify-content:center">Don't see what you want?</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin:12px 0">Place a Custom Order</h3>
+          <p style="color:var(--text-m);max-width:480px;margin:0 auto 24px;font-size:.92rem;line-height:1.8">Share your design inspiration, fabric preference and measurements — Anushka will stitch it exactly to your vision.</p>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            <a href="contact.html" class="btn btn-rose btn-md">Enquire Now</a>
+            <a href="https://wa.me/918369876543?text=Hi%20Anushka!%20I%20want%20to%20place%20a%20custom%20order." class="wa-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.073 5.073 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp Anushka
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div><div class="f-brand-name">Anushka Boutique</div><div class="f-brand-sub">By Anushka Gupta · Mumbai</div><p class="f-desc">A home-based boutique bringing you handcrafted, custom-stitched women's clothing with love and precision since 2019.</p><div class="f-socials"><a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a></div></div>
+    <div><h4 class="f-col-title">Quick Links</h4><ul class="f-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About Anushka</a></li><li><a href="collection.html">Collection</a></li><li><a href="cart.html">Cart</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h4 class="f-col-title">Categories</h4><ul class="f-links"><li><a href="collection.html?cat=kurtis">Kurtis</a></li><li><a href="collection.html?cat=lehenga">Lehenga & Sharara</a></li><li><a href="collection.html?cat=tops">Crop Tops</a></li><li><a href="collection.html?cat=dresses">Dresses</a></li><li><a href="collection.html?cat=kids">Baby Frocks</a></li><li><a href="collection.html?cat=custom">Custom Orders</a></li></ul></div>
+    <div><h4 class="f-col-title">Get in Touch</h4><div class="f-contact-row"><span class="f-contact-icon">📞</span><span>+91 83698 76543</span></div><div class="f-contact-row"><span class="f-contact-icon">✉️</span><span>anushka@boutique.com</span></div><div class="f-contact-row"><span class="f-contact-icon">📍</span><span>Mumbai, Maharashtra</span></div><a href="https://wa.me/918369876543" class="wa-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.073 5.073 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Chat on WhatsApp</a></div>
+  </div>
+  <div class="f-bottom"><span>© 2026 Anushka Boutique · Mumbai.</span><span>Made with ♥</span></div>
+</footer>
+</div>
+
+<a href="https://wa.me/918369876543" class="wa-float"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.073 5.073 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<button class="back-top" id="backTop">↑</button>
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+<script>
+// Collection-specific: pill filter helper + URL param on load
+function pillarFilter(cat, btn) {
+  _fCat = cat;
+  document.querySelectorAll('.filter-pill').forEach(b => {
+    b.style.background = b.dataset.filter === cat ? 'var(--rose)' : '#fff';
+    b.style.color = b.dataset.filter === cat ? '#fff' : 'var(--text-m)';
+    b.style.borderColor = b.dataset.filter === cat ? 'var(--rose)' : 'var(--border)';
+  });
+  renderFiltered();
+}
+function setMobFilter(cat, btn) {
+  _fCat = cat;
+  document.querySelectorAll('.filter-btn-mob').forEach(b => {
+    b.style.background = b.dataset.filter === cat ? 'var(--rose)' : '#fff';
+    b.style.color = b.dataset.filter === cat ? '#fff' : '';
+    b.style.borderColor = b.dataset.filter === cat ? 'var(--rose)' : 'var(--border)';
+  });
+  pillarFilter(cat, null);
+}
+function toggleCatFilter(checkbox) {
+  const cat = checkbox.dataset.filter;
+  if (checkbox.checked) {
+    _fCat = cat;
+    pillarFilter(cat, null);
+  } else {
+    _fCat = 'all';
+    pillarFilter('all', null);
+  }
+}
+// Read URL param on load
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get('cat');
+  if (cat) {
+    setTimeout(() => pillarFilter(cat, null), 100);
+  }
+});
+// Badge filters
+document.addEventListener('DOMContentLoaded', () => {
+  const origRenderFiltered = renderFiltered;
+  window.renderFiltered = function() {
+    const filterNew = document.getElementById('filterNew')?.checked;
+    const filterBest = document.getElementById('filterBest')?.checked;
+    let prods = [...PRODUCTS];
+    if (_fCat !== 'all') prods = prods.filter(p => p.category === _fCat);
+    if (_fSizes.size) prods = prods.filter(p => [..._fSizes].some(s => p.sizes.includes(s) && !p.na.includes(s)));
+    prods = prods.filter(p => p.price <= _fMaxP);
+    if (filterNew) prods = prods.filter(p => p.badge === 'new');
+    if (filterBest) prods = prods.filter(p => p.badge === 'bestseller');
+    if (_fSort === 'price_asc') prods.sort((a,b) => a.price - b.price);
+    else if (_fSort === 'price_desc') prods.sort((a,b) => b.price - a.price);
+    else if (_fSort === 'rating') prods.sort((a,b) => b.rating - a.rating);
+    else if (_fSort === 'newest') prods.sort((a,b) => (b.badge==='new'?1:0) - (a.badge==='new'?1:0));
+    const grid = document.getElementById('collectionGrid');
+    const res = document.getElementById('collResult');
+    if (res) res.innerHTML = `Showing <strong>${prods.length}</strong> result${prods.length!==1?'s':''}`;
+    if (!grid) return;
+    if (!prods.length) { grid.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:80px 0"><div style="font-size:2.5rem;margin-bottom:12px">🔍</div><h3 style="font-family:'Playfair Display',serif;margin-bottom:8px">No products found</h3><p style="color:var(--text-s);margin-bottom:20px">Try adjusting your filters</p><button class="btn btn-rose btn-md" onclick="clearFilters()">Clear Filters</button></div>`; return; }
+    grid.innerHTML = prods.map((p,i) => renderCard(p, i%4)).join('');
+    initReveal();
+  };
+});
+</script>
+</body>
+</html>
